@@ -18,40 +18,29 @@ void signup(string);
 
 //  File to store user login information and progress
 
-int main()
-{
-    bool running = true;
-    int option;
-    while (running)
-    {
-
-        option = displayMenu();
-
-        switch (option)
-        {
-        case 1:
-            cout << "******* Sign In *******" << endl;
-            break;
-        case 2:
-            cout << "****** Log In *******" << endl;
-            break;
-        case 3:
-            cout << "******* Review Topics" << endl;
-            break;
-        case 4:
-            cout << "******* Show Learning Track" << endl;
-            break;
-        case 5:
-            cout << "Good Bye ..." << endl;
-            running = false;
-            break;
-        }
-    }
-}
-
 void signup(string filename)
 {
     ofstream file(filename, ios::app);
+}
+
+void login(string filename)
+{
+    ifstream inFile("users.txt");
+    string user, pass;
+    string inputUser, inputPass;
+// ... get inputUser / inputPass from cin ...
+
+bool found = false;
+while (inFile >> user >> pass) {
+    if (user == inputUser && pass == inputPass) {
+        found = true;
+        break;
+    }
+}
+inFile.close();
+
+if (found) cout << "Welcome!" << endl;
+else cout << "Wrong login" << endl;
 }
 
 int displayMenu()
@@ -78,4 +67,35 @@ int displayMenu()
 
     } while (option < 1 || option > 5);
     return option;
+}
+
+int main()
+{
+    bool running = true;
+    int option;
+    while (running)
+    {
+
+        option = displayMenu();
+
+        switch (option)
+        {
+        case 1:
+            cout << "******* Sign In *******" << endl;
+            break;
+        case 2:
+            login("users.txt");
+            break;
+        case 3:
+            cout << "******* Review Topics" << endl;
+            break;
+        case 4:
+            cout << "******* Show Learning Track" << endl;
+            break;
+        case 5:
+            cout << "Good Bye ..." << endl;
+            running = false;
+            break;
+        }
+    }
 }
