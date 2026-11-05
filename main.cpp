@@ -14,10 +14,9 @@ using namespace std;
 
 // Prototypes
 int displayMenu();
-
+void signup(string);
 
 //  File to store user login information and progress
-
 
 int main()
 {
@@ -49,9 +48,16 @@ int main()
         }
     }
 }
+
+void signup(string filename)
+{
+    ofstream file(filename, ios::app);
+}
+
 int displayMenu()
 {
     int option;
+    string filename = "users.txt";
     do
     {
         cout << "\n---------------------------" << endl;
