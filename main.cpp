@@ -20,7 +20,6 @@ void signup(string);
 bool login(string);
 string getString(string);
 
-//  File to store user login information and progress
 
 int main()
 {
@@ -98,7 +97,7 @@ void signup(string filename)
     outFile.close();
     cout << "\nUser registered successfully!\n";
 }
-
+// log in current users
 bool login(string filename)
 {
 
@@ -183,6 +182,7 @@ int displayTutorMenu()
     } while (option < 1 || option > 3);
     return option;
 }
+// Submenu for registered users
 void displaySubMenu(int option)
 {
     do
