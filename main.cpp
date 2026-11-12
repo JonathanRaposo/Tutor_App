@@ -25,7 +25,7 @@ int main()
 {
     bool running = true;
     int option;
-    string filename = "database/users.txt";
+    string filename = "database/users.txt"; // for windows: "database\\users.txt"
     int isFound;
 
     while (running)
